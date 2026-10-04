@@ -7,13 +7,13 @@ The code.py and boot.py files can be uploaded to a Raspberry Pi Pico (2, in my c
 
 This PPM signal is then converted into a HID packet that is sent off to a PC. The boot.py file ensures that the pi is detected specifically as a USB Joystick, and you should see it listed as such in device manager or in the HOTAS setup page of your game. In games it is usually detected as "CIRCUITPI HID".
 
-The "Basic 8-channel" file will generate a HID joystick with the first 4 channels for the thumb stick axes, and the remaining as switches/buttons. The "Full-channel" file is more complex and is really only for my specific setup and needs, but feel free to poke around and modify it for your own use.
+The "Basic 8-channel" file will generate a HID joystick with the first 4 channels for the thumb stick axes, and the remaining as switches/buttons. The "3POSAsTriggerSelect" file is more complex and is really only for my specific setup and needs, but feel free to poke around and modify it for your own use.
 
 There are several important parameters at the top of the code that you will need to change to match your transmitter;
 PPM_ACTIVE_HIGH       #PPM rising edge or pulse falling edge? True for rising, False for falling
 FRAME_LENGTH_US     #I have OpenTX on my transmitter, and it lists the PPM packet size in milliseconds
 PULSE_LENGTH_US       #300uS is the default for me
 
-The rest of the code is just managing the USB interaction. 
+The rest of the code is just managing the USB interaction. Please note that there is a different boot.py file for each code.py file. Mixing them will create problems.
 
-Please note that there is a different boot.py file for each code.py file. Mixing them will create problems.
+I have also uploaded some diagnostic tools I used to test the setup, in case you find it helpful!
